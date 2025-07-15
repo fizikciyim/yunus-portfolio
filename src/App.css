@@ -1,0 +1,100 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+}
+
+.w3-row-padding img {
+  margin-bottom: 12px;
+}
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {
+  width: 120px;
+  background: #222;
+}
+
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+main {
+  margin-left: 140px;
+  margin-right: 20px;
+}
+
+/*!??! */
+html,
+body,
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+/*!???!  */
+form.custom-width {
+  width: 35%;
+}
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {
+  main {
+    margin-left: 20px; /* veya istediğin başka bir margin değeri */
+    margin-right: 20px; /* opsiyonel, sağdan da boşluk için */
+  }
+  form.custom-width {
+    width: 80%;
+  }
+}
+
+p {
+  color: white;
+}
+
+/* li {
+  color: rgb(0, 0, 0);
+} */
+.beyaz {
+  color: rgb(255, 255, 255);
+}
+.my-class {
+  width: 16.6% !important;
+}
+
+.fade-alert {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.fade-alert.show {
+  opacity: 1;
+  visibility: visible;
+}
+@media (max-width: 768px) {
+  main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Dikey ortala */
+    align-items: center; /* Yatay ortala */
+  }
+}
+
+.active-link {
+  color: #00ff59 !important;
+  font-weight: bold;
+}
+.modal-pdf {
+  width: 100%;
+  height: 700px;
+}
+
+@media (max-width: 768px) {
+  .modal-pdf {
+    height: 400px; /* Mobilde küçültülmüş yükseklik */
+  }
+}
