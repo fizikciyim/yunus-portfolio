@@ -1,19 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import YorumEkle from "./YorumEkle";
+import { useAuth } from "./AuthContext"; // path'i kendi dosyanın konumuna göre değiştir
 
 function Comments() {
+  const { kullanici, logout } = useAuth();
+
   const [yorumlar, setYorumlar] = useState([]);
   const [loading, setLoading] = useState(true); // loading durumu eklendi
-
-  const [kullaniciAdi, setKullaniciAdi] = useState("");
-  useEffect(() => {
-    const kayitliKullanici = localStorage.getItem("kullanici");
-    if (kayitliKullanici && kayitliKullanici !== "undefined") {
-      const kullanici = JSON.parse(kayitliKullanici);
-      setKullaniciAdi(kullanici?.userName || "");
-    }
-  }, []);
 
   const yorumlariGetir = () => {
     setLoading(true); // Yükleme başladı
@@ -37,10 +31,18 @@ function Comments() {
   const [silOnayi, setSilOnayi] = useState({ acik: false, yorumId: null });
 
   const handleSil = async (id) => {
+    const userName = kullanici?.userName || "";
+    console.log(
+      "Silme isteği URL:",
+      `http://api.yunuskarasen.com/api/yorum-sil/${id}?kullaniciAdi=${encodeURIComponent(
+        userName
+      )}`
+    );
+
     try {
       await axios.delete(
         `http://api.yunuskarasen.com/api/yorum-sil/${id}?kullaniciAdi=${encodeURIComponent(
-          kullaniciAdi
+          kullanici?.userName
         )}`
       );
 
@@ -50,7 +52,7 @@ function Comments() {
     }
   };
   return (
-    <div className="w-100">
+    <div className="w-100 ">
       <YorumEkle onYorumEklendi={yorumlariGetir} />
 
       <div className="container">
@@ -78,14 +80,16 @@ function Comments() {
               </p>
               <div className="d-flex justify-content-between">
                 <small>{new Date(yorum.tarih).toLocaleString()}</small>
-                <button
-                  disabled={yorum.kullaniciAdi !== kullaniciAdi}
-                  className="btn btn-danger btn-sm"
-                  // onClick={() => handleSil(yorum.id)}
-                  onClick={() => setSilOnayi({ acik: true, yorumId: yorum.id })}
-                >
-                  Yorumu Sil
-                </button>
+                {kullanici && yorum.kullaniciAdi === kullanici.userName && (
+                  <button
+                    className="btn btn-danger btn-sm"
+                    onClick={() =>
+                      setSilOnayi({ acik: true, yorumId: yorum.id })
+                    }
+                  >
+                    Yorumu Sil
+                  </button>
+                )}
                 {silOnayi.acik && (
                   <div
                     className="modal fade show"

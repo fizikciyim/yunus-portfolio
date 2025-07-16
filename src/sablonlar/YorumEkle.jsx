@@ -1,9 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Toast } from "bootstrap";
+import { useAuth } from "./AuthContext"; // AuthContext dosyasının yoluna göre değiştir
 
 function YorumEkle({ onYorumEklendi }) {
-  const [kullaniciAdi, setKullaniciAdi] = useState("");
+  const { kullanici } = useAuth();
+
+  const [kullaniciAdi, setKullaniciAdi] = useState(kullanici?.userName || "");
+
   const [yorum, setYorum] = useState("");
   const [isSuccess, setIsSucccess] = useState(false);
 
@@ -18,12 +22,8 @@ function YorumEkle({ onYorumEklendi }) {
   const [yorumHata, setYorumHata] = useState(false);
 
   useEffect(() => {
-    const kayitliKullanici = localStorage.getItem("kullanici");
-    if (kayitliKullanici && kayitliKullanici !== "undefined") {
-      const kullanici = JSON.parse(kayitliKullanici);
-      setKullaniciAdi(kullanici?.userName || "");
-    }
-  }, []);
+    setKullaniciAdi(kullanici?.userName || "");
+  }, [kullanici]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

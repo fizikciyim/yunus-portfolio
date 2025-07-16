@@ -41,21 +41,28 @@ function Proje({ baslik, konu, diller, github, link, govde }) {
         }}
       >
         <div>
-          {github && (
-            <a
-              href={github}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                color: "#4ea1f7",
-                textDecoration: "none",
-                fontWeight: "600",
-              }}
-            >
-              <i className="fa fa-github" style={{ marginRight: 10 }}></i>
-              GitHub
-            </a>
-          )}
+          {github &&
+            github.map((link, index) => (
+              <a
+                className="{index === 1 ? ms-2: me-3 }"
+                key={index}
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: "#4ea1f7",
+                  textDecoration: "none",
+                  fontWeight: "600",
+                  marginBottom: "5px",
+                }}
+              >
+                <i
+                  className="fa fa-github {index === 1 ? ms-2: me-1 } "
+                  style={{ marginRight: 10 }}
+                ></i>
+                GitHub
+              </a>
+            ))}
           {link && (
             <a
               href={link}
@@ -102,7 +109,7 @@ function Portfolio() {
     baslik: "Metin2 Eski Tip Balık Botu",
     konu: "Metin2 oyununda birden fazla hesap için aynı anda balık tutulmasını sağlayan bot.",
     diller: ["Go", "Python"],
-    github: "https://github.com/fizikciyim/metin2-balik-botu",
+    github: ["https://github.com/fizikciyim/metin2-balik-botu"],
     link: "https://www.youtube.com/watch?v=GEApYe-mTus",
     govde:
       "Birden fazla hesap için çalışan Metin2 eski tip balık botu Metin2TR’de 2019 yılına kadar geçerli olan ve günümüzde birçok PvP sunucusunda halakullanılan klasik balık tutma sistemi için geliştirilmiş bir bottur.",
@@ -112,7 +119,7 @@ function Portfolio() {
     baslik: "Metin2 TR Güncel Balık Botu",
     konu: "Metin2 TR'de birden fazla hesap için aynı anda balık tutulmasını sağlayan bot.",
     diller: ["Go"],
-    github: "https://github.com/fizikciyim/metin2-balik-botu",
+    github: ["https://github.com/fizikciyim/metin2-balik-botu"],
     link: "https://www.youtube.com/watch?v=_zrbYQUBouA",
     govde: "irilmiş bir bottur.",
   };
@@ -121,16 +128,24 @@ function Portfolio() {
     baslik: "Kişisel Portföy Sitesi",
     konu: "Kendi hakkımda, projelerim ve iletişim bilgilerimi içeren responsive ve modern tasarıma sahip web sitesi.",
     diller: ["ReactJS", "CSS", "JavaScript"],
-    github: "https://github.com/yunus/portfolio-site",
+    github: [
+      "https://github.com/fizikciyim/yunus-portfolio",
+      "https://github.com/fizikciyim/yunus-portfolio-backend",
+    ],
     link: "https://www.yunuskarasen.com",
-    govde: "a111111111111.",
+    govde: `Bu proje, ReactJS kullanılarak geliştirilen kişisel portföy sitemdir.
+     Web sitesi tamamen responsive tasarıma sahiptir ve mobil uyumludur.
+      Ana sayfada kısa bir tanıtım, projelerim sekmesinde GitHub üzerinden 
+      bağlantılı olarak yaptığım çalışmalara erişim sağlanmakta, iletişim kısmında
+       ise benimle e-posta üzerinden kolayca iletişime geçilebilmektedir.
+        Tasarımda sade ve modern bir stil tercih edilmiştir.`,
   };
 
   const ucgenArbitraj = {
     baslik: "Kripto Para Üçgen Arbitraj Botu",
     konu: "BtcTurk borsasında üçgen arbitraj botu botu botu botu botu botu botu",
     diller: ["Go"],
-    github: "https://github.com/yunus/ucgen-arbitraj",
+    github: ["https://github.com/yunus/ucgen-arbitraj"],
     link: null,
     govde: "BtcTurk borsasında üçgen arbitraj botu.",
   };
