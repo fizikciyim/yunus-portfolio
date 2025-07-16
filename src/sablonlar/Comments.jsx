@@ -64,7 +64,7 @@ function Comments() {
                 border: "1px solid #ccc",
                 marginBottom: "10px",
                 padding: "10px",
-                borderRadius: "8px", // Kenarları yuvarlatır
+                borderRadius: "8px",
               }}
             >
               <strong>{yorum.kullaniciAdi}</strong>

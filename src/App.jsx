@@ -5,7 +5,6 @@ import Header from "./sablonlar/Header";
 import About from "./sablonlar/About";
 import Portfolio from "./sablonlar/Portfolio";
 import Contact from "./sablonlar/Contact";
-import Footer from "./sablonlar/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NotFound from "./sablonlar/404";
 import { useLocation } from "react-router-dom";
@@ -41,8 +40,6 @@ function Layout({ children }) {
 
         {children}
       </main>
-
-      {/* {!isNotFound && <Footer />} */}
     </>
   );
 }

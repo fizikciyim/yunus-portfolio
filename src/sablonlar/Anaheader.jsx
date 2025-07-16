@@ -5,7 +5,7 @@ function AnaHeader() {
   const { kullanici, login, logout } = useAuth();
 
   const handleLogout = () => {
-    logout(); // sadece bu kadar
+    logout(); //! sadece bu kadar
 
     // navigate("/"); // Anasayfaya ya da giriş sayfasına dön
   };

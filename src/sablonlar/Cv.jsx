@@ -11,7 +11,6 @@ function Cv() {
     if (isMobile) {
       window.open("/output.pdf", "_blank");
     } else {
-      // Masaüstü için modalı aç (örnek)
       setShowModal(true);
     }
   };
