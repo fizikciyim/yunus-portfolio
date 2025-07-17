@@ -5,16 +5,52 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [kullanici, setKullanici] = useState(null);
 
+  // ✅ 2. ADIM: Uygulama açıldığında oturum süresi kontrolü
   useEffect(() => {
     const kayitliKullanici = localStorage.getItem("kullanici");
+
     if (kayitliKullanici) {
-      setKullanici(JSON.parse(kayitliKullanici));
+      const veriler = JSON.parse(kayitliKullanici);
+
+      // Süre kontrolü:
+      if (veriler.oturumSonu && Date.now() > veriler.oturumSonu) {
+        localStorage.removeItem("kullanici");
+        setKullanici(null);
+      } else {
+        setKullanici(veriler);
+      }
     }
   }, []);
 
+  // ✅ 3. ADIM: Giriş yaptıktan sonra süre bitince otomatik çıkış
+  useEffect(() => {
+    if (kullanici?.oturumSonu) {
+      const kalanSure = kullanici.oturumSonu - Date.now();
+
+      if (kalanSure > 0) {
+        const zamanlayici = setTimeout(() => {
+          logout();
+        }, kalanSure);
+
+        return () => clearTimeout(zamanlayici); // Temizlik
+      } else {
+        logout(); // Süre zaten geçmişse hemen çıkış yap
+      }
+    }
+  }, [kullanici]);
+
   const login = (kullaniciBilgisi) => {
-    localStorage.setItem("kullanici", JSON.stringify(kullaniciBilgisi));
-    setKullanici(kullaniciBilgisi);
+    //! 1000 --> 1 saniye, 1000*60 --> 1 dakika yapar
+    const oturumSuresi = 10 * 60 * 1000; // 30 dakika
+    const oturumSonu = Date.now() + oturumSuresi;
+
+    const veriler = {
+      ...kullaniciBilgisi,
+      oturumSonu,
+    };
+
+    localStorage.setItem("kullanici", JSON.stringify(veriler));
+    setKullanici(veriler);
   };
 
   const logout = () => {
@@ -28,4 +64,5 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
 export const useAuth = () => useContext(AuthContext);

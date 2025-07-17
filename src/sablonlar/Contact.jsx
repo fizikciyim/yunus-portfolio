@@ -22,10 +22,32 @@ function Contact() {
           </p>
           <p>
             <a
+              href="https://github.com/fizikciyim"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none", color: "#1E90FF" }}
+            >
+              <i className="w3-text-white fab fa-github fa-fw w3-xxlarge w3-margin-right"></i>
+              https://github.com/fizikciyim
+            </a>
+          </p>
+          <p>
+            <a
+              href="https://www.linkedin.com/in/yunuskarasen"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none", color: "#1E90FF" }}
+            >
+              <i className="w3-text-white fab fa-linkedin fa-fw w3-xxlarge w3-margin-right"></i>
+              https://www.linkedin.com/in/yunuskarasen
+            </a>
+          </p>
+          <p>
+            <a
               href="https://t.me/fizikciyim34"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ textDecoration: "none", color: "lightblue" }}
+              style={{ textDecoration: "none", color: "#1E90FF" }}
             >
               <i className="w3-text-white fa fa-telegram fa-fw w3-xxlarge w3-margin-right"></i>
               @fizikciyim34

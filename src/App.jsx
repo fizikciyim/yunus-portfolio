@@ -13,6 +13,7 @@ import Register from "./sablonlar/Register";
 import Comments from "./sablonlar/Comments";
 import Signin from "./sablonlar/Signin";
 import { AuthProvider } from "./sablonlar/AuthContext";
+import Footer from "./sablonlar/Footer";
 
 function Layout({ children }) {
   const location = useLocation();
@@ -40,6 +41,7 @@ function Layout({ children }) {
 
         {children}
       </main>
+      <Footer />
     </>
   );
 }

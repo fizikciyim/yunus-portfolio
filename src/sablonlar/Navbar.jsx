@@ -4,15 +4,25 @@ import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "./AuthContext"; // path'i kendi dosyana göre ayarla
 
 function Navbar() {
-  const { kullanici, login, logout } = useContext(AuthContext);
-
   const location = useLocation(); // Şu anki URL bilgisi burada
+
+  const sayfaBasliklari = {
+    "/": "Ana Sayfa",
+    "/about": "Hakkımda",
+    "/photos": "Projelerim",
+    "/contact": "İletişim",
+    "/comments": "Yorumlar",
+    "/signin": "Giriş Yap",
+    "/register": "Kayıt Ol",
+  };
+  const baslik = sayfaBasliklari[location.pathname] || "Sayfa";
+
+  const { kullanici, login, logout } = useContext(AuthContext);
 
   const [isOpen, setIsOpen] = useState(false);
   const collapseRef = useRef(null);
   const bsCollapseRef = useRef(null);
 
-  console.log("kullanici", kullanici);
   // Bootstrap Collapse instance'ını sadece bir kere başlat
   useEffect(() => {
     if (collapseRef.current && !bsCollapseRef.current) {
@@ -69,11 +79,11 @@ function Navbar() {
 
   return (
     <nav
-      className="navbar navbar-dark bg-dark px-3 d-sm-none"
+      className="navbar  navbar-dark bg-dark px-3 d-sm-none"
       style={{ position: "fixed", top: 0, width: "100%", zIndex: 1050 }}
     >
-      <Link className="navbar-brand" to="/">
-        Ana Sayfa
+      <Link className="navbar-brand" to={location.pathname}>
+        {baslik}
       </Link>
 
       <div style={{ display: "flex", alignItems: "center" }}>
@@ -106,6 +116,11 @@ function Navbar() {
         id="navbarNavDropdown"
       >
         <ul className="navbar-nav me-auto">
+          <li className="nav-item">
+            <Link className={getNavLinkClass("/")} to="/" onClick={closeNavbar}>
+              Ana Sayfa
+            </Link>
+          </li>
           <li className="nav-item">
             <Link
               className={getNavLinkClass("/about")}
@@ -146,20 +161,30 @@ function Navbar() {
 
         {isLoggedIn ? (
           <button
-            className="btn btn-danger pe-2 ps-2 pt-0 pb-0"
+            className="btn btn-danger pe-2 ps-2 pt-0 pb-0 "
             onClick={logout}
           >
             Çıkış Yap
           </button>
         ) : (
-          <Link
-            className={getNavLinkClass("/signin")}
-            to="/signin"
-            onClick={closeNavbar}
-            style={{ color: "#e1eef4" }}
-          >
-            Giriş Yap
-          </Link>
+          <div className="d-flex">
+            <Link
+              className={`${getNavLinkClass("/signin")} me-5 `}
+              to="/signin"
+              onClick={closeNavbar}
+              style={{ color: "#e1eef4" }}
+            >
+              Giriş Yap
+            </Link>
+            <Link
+              className={getNavLinkClass("/register")}
+              to="/register"
+              onClick={closeNavbar}
+              style={{ color: "#e1eef4" }}
+            >
+              Kayıt Ol
+            </Link>
+          </div>
         )}
       </div>
     </nav>

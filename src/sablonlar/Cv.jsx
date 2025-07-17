@@ -9,7 +9,7 @@ function Cv() {
   const handlePdfOpen = () => {
     const isMobile = window.innerWidth < 768;
     if (isMobile) {
-      window.open("/output.pdf", "_blank");
+      window.open("/cv.pdf", "_blank");
     } else {
       setShowModal(true);
     }
@@ -34,11 +34,11 @@ function Cv() {
           className="w3-opacity"
         />
       </div>
-      <div className="mt-3">
+      <div className="mt-3 mb-3">
         <button className="btn btn-primary me-3" onClick={handlePdfOpen}>
           Görüntüle
         </button>
-        <a href="/output.pdf" download>
+        <a href="/cv.pdf" download>
           <button className="btn btn-primary">İndir</button>
         </a>
       </div>
@@ -66,7 +66,7 @@ function Cv() {
                 {/* Burada CV içeriğin olabilir, PDF veya HTML */}
                 <iframe
                   className="modal-pdf"
-                  src="/output.pdf"
+                  src="/cv.pdf"
                   title="CV PDF"
                 ></iframe>
               </div>

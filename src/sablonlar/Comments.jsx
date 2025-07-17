@@ -52,7 +52,7 @@ function Comments() {
     }
   };
   return (
-    <div className="w-100 ">
+    <div className="w-100">
       <YorumEkle onYorumEklendi={yorumlariGetir} />
 
       <div className="container">
@@ -67,13 +67,17 @@ function Comments() {
                 marginBottom: "10px",
                 padding: "10px",
                 borderRadius: "8px",
+                backgroundColor: "gray",
               }}
             >
-              <strong>{yorum.kullaniciAdi}</strong>
+              <h5 style={{ color: "black", fontWeight: "bold" }}>
+                {yorum.kullaniciAdi}
+              </h5>
               <p
                 style={{
                   overflowWrap: "break-word",
                   wordWrap: "break-word",
+                  fontWeight: "bold",
                 }}
               >
                 {yorum.yorum}

@@ -78,7 +78,7 @@ function Proje({ baslik, konu, diller, github, link, govde }) {
               {link.includes("youtube.com") || link.includes("youtu.be") ? (
                 <>
                   <i
-                    className="fa fa-youtube-play"
+                    className="fa fa-youtube-play me-1"
                     aria-hidden="true"
                     style={{ marginRight: 10 }}
                   ></i>
@@ -88,7 +88,7 @@ function Proje({ baslik, konu, diller, github, link, govde }) {
                 <>
                   {" "}
                   <i
-                    className="fa fa-external-link"
+                    className="fa fa-external-link me-1"
                     aria-hidden="true"
                     style={{ marginRight: 10 }}
                   ></i>
@@ -127,7 +127,7 @@ function Portfolio() {
   const projePortfolyo = {
     baslik: "Kişisel Portföy Sitesi",
     konu: "Kendi hakkımda, projelerim ve iletişim bilgilerimi içeren responsive ve modern tasarıma sahip web sitesi.",
-    diller: ["ReactJS", "CSS", "JavaScript"],
+    diller: ["ReactJS", "Bootstrap", "Node.js", "Express.js", "MySQL"],
     github: [
       "https://github.com/fizikciyim/yunus-portfolio",
       "https://github.com/fizikciyim/yunus-portfolio-backend",
