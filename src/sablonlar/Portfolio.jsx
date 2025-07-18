@@ -18,6 +18,7 @@ function Proje({ baslik, konu, diller, github, link, govde }) {
       <div style={{ marginBottom: "12px" }}>
         {diller.map((dil, i) => (
           <span
+            className="my-1"
             key={i}
             style={{
               display: "inline-block",
@@ -153,10 +154,30 @@ function Portfolio() {
   return (
     <>
       {/* Portfolio Section */}
-      <div className="w3-padding-64 w3-content" id="photos">
-        <h2 className="w3-text-light-grey">Projelerim</h2>
-        <hr style={{ width: 200 }} className="w3-opacity" />
-        <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+      <div
+        className="w3-padding-64 
+        align-items-center w3-content d-flex flex-column
+         "
+        id="photos"
+      >
+        <h2 className="w3-text-light-grey d-inline">
+          Projelerim
+          <hr
+            style={{
+              margin: 0,
+              marginTop: 0,
+              height: 2,
+              border: "none",
+              backgroundColor: "#ccc",
+            }}
+            className="w3-opacity"
+          />{" "}
+        </h2>
+
+        <div
+          className="d-flex justify-content-center"
+          style={{ gap: "20px", flexWrap: "wrap" }}
+        >
           <Proje {...projePortfolyo} />
           <Proje {...metin2balik} />
           <Proje {...metin2TRbalik} />

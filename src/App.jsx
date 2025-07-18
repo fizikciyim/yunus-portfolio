@@ -8,7 +8,6 @@ import Contact from "./sablonlar/Contact";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NotFound from "./sablonlar/404";
 import { useLocation } from "react-router-dom";
-import Anaheader from "./sablonlar/Anaheader";
 import Register from "./sablonlar/Register";
 import Comments from "./sablonlar/Comments";
 import Signin from "./sablonlar/Signin";
@@ -37,8 +36,6 @@ function Layout({ children }) {
         // className="d-flex flex-column justify-content-center align-items-center"
         style={{ minHeight: "100vh" }}
       >
-        <Anaheader />
-
         {children}
       </main>
       <Footer />
@@ -58,9 +55,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/register" element={<Register />} />
             <Route path="/signin" element={<Signin />} />
-
             <Route path="/comments" element={<Comments />} />
-
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

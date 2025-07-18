@@ -67,7 +67,7 @@ function YorumEkle({ onYorumEklendi }) {
     <>
       <form onSubmit={handleSubmit}>
         <div
-          className="container d-flex justify-content-start align-items-center mt-5"
+          className="container d-flex justify-content-start align-items-center"
           style={{ height: 300 }}
         >
           <div className="col-12">
