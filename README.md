@@ -41,8 +41,8 @@ Bu proje iki ayrı repository'den oluşur:
 1. Backend reposunu klonlayın:
 
 ```bash
-git clone https://github.com/kullanici-adi/portfolio-backend.git
-cd portfolio-backend
+git clone https://github.com/fizikciyim/yunus-portfolio-backend.git
+cd yunus-portfolio-backend
 ```
 
 2. Bağımlılıkları yükleyin:
@@ -69,3 +69,26 @@ npm run dev
 ```
 
 ### 🔽 2. Frontend Kurulumu
+
+```bash
+git clone https://github.com/fizikciyim/yunus-portfolio.git
+cd yunus-portfolio
+```
+
+2. Bağımlılıkları yükleyin:
+
+```bash
+npm install
+```
+
+3. Frontendi başlatın:
+
+```
+npm run dev
+```
+
+### ✅ Kurulum Sonrası
+
+- http://localhost:5173 adresinden frontend arayüzüne erişebilirsiniz.
+- http://localhost:3001/api adresi backend API’nizdir.
+- Giriş-kayıt işlemleri, yorum gönderme ve diğer API talepleri bu altyapı üzerinden gerçekleşir.
