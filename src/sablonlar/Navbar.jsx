@@ -157,6 +157,15 @@ function Navbar() {
               Yorumlar
             </Link>
           </li>
+          <li className="nav-item">
+            <Link
+              className={getNavLinkClass("/art")}
+              to="/art"
+              onClick={closeNavbar}
+            >
+              Sanat
+            </Link>
+          </li>
         </ul>
 
         {isLoggedIn ? (

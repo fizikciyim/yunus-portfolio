@@ -112,3 +112,12 @@ p {
 .toast-custom.show {
   opacity: 1;
 }
+
+@media (max-width: 768px) {
+  .masonry-wrapper {
+    column-count: 1 !important;
+  }
+  .mobil-margin {
+    margin-top: 4rem !important; /* veya 4rem */
+  }
+}

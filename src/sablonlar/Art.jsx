@@ -159,34 +159,57 @@ function Art() {
   const [modalResim, setModalResim] = useState(null); // Şu an açık olan resim
 
   const resimler = [
-    { dosya: "sarisac.png", baslik: "Portre 1" },
-    { dosya: "sazan.png", baslik: "Doğa Manzarası" },
-    { dosya: "sazan2.png", baslik: "Hayal Gücü" },
-    { dosya: "siyahsac.png", baslik: "Hayal Gücü" },
-    { dosya: "temizlesac.png", baslik: "Hayal Gücü" },
-    { dosya: "yayin.png", baslik: "Hayal Gücü" },
+    { dosya: "1.jpeg", baslik: "Portre 1" },
+    { dosya: "2.jpeg", baslik: "Portre 1" },
+    { dosya: "3.jpeg", baslik: "Portre 1" },
+    { dosya: "4.jpeg", baslik: "Portre 1" },
+    { dosya: "5.jpeg", baslik: "Portre 1" },
+    { dosya: "6.jpeg", baslik: "Portre 1" },
+    { dosya: "7.jpeg", baslik: "Portre 1" },
+    { dosya: "8.jpeg", baslik: "Portre 1" },
+    { dosya: "9.jpeg", baslik: "Portre 1" },
+    { dosya: "10.jpeg", baslik: "Portre 1" },
+    { dosya: "11.jpeg", baslik: "Portre 1" },
+    { dosya: "12.jpeg", baslik: "Portre 1" },
+    { dosya: "13.jpeg", baslik: "Portre 1" },
   ];
 
   return (
-    <div className="container mt-4" style={{ maxWidth: "1200px" }}>
+    <div
+      className="container mt-md-3 mobil-margin"
+      style={{ maxWidth: "1200px" }}
+    >
       <h2 className="text-center mb-4">Sanat Galerim</h2>
-      <div className="row">
+
+      <div
+        className="masonry-wrapper mb-3"
+        style={{
+          columnCount: 4,
+          columnGap: "1.5rem",
+        }}
+      >
         {resimler.map((resim, index) => (
-          <div className="col-md-4 mb-4" key={index}>
-            <div className="card h-100 shadow-sm">
+          <div
+            key={index}
+            style={{
+              breakInside: "avoid",
+              marginBottom: "1rem",
+            }}
+          >
+            <div className="card shadow-sm">
               <img
                 src={`/sanat/${resim.dosya}`}
                 className="card-img-top"
                 alt={resim.baslik}
                 style={{
                   objectFit: "contain",
-                  height: "200px",
                   width: "100%",
+                  height: "auto",
                   cursor: "pointer",
                 }}
-                onClick={() => setModalResim(resim)} // Resme tıklanınca modal açılır
+                onClick={() => setModalResim(resim)}
               />
-              <div className="card-body text-center">
+              <div className="card-body text-center ">
                 <h5 className="card-title">{resim.baslik}</h5>
                 <StarRating
                   initialRating={parseFloat(ortalamaPuanlar[index]) || 0}
