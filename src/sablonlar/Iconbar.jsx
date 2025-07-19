@@ -10,12 +10,15 @@ function Iconbar() {
   return (
     <nav className="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
       {kullanici ? (
-        <>
+        <div
+          className="w3-bar-item w3-padding-large"
+          style={{ backgroundColor: "gray" }}
+        >
           <i className="fa fa-user w3-xxlarge" />
-          <p className="mb-0">
+          <p>
             <strong>{kullanici.userName}</strong>
           </p>
-        </>
+        </div>
       ) : (
         <img src="yunus.png" style={{ width: "100%" }} />
       )}
@@ -71,7 +74,15 @@ function Iconbar() {
       </Link>
 
       {kullanici ? (
-        <>Çıkış Yap</>
+        <div
+          onClick={logout}
+          className={`w3-bar-item w3-button w3-padding-large ${
+            location.pathname === "/signin" ? "w3-black" : "w3-hover-black"
+          }`}
+        >
+          <i className="fa fa-sign-out-alt w3-xxlarge" />
+          <p>Çıkış Yap</p>
+        </div>
       ) : (
         <>
           <Link
