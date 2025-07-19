@@ -72,6 +72,15 @@ function Iconbar() {
         <i className="fa fa-comments w3-xxlarge" />
         <p>Yorumlar</p>
       </Link>
+      <Link
+        to="/art"
+        className={`w3-bar-item w3-button w3-padding-large ${
+          location.pathname === "/art" ? "w3-black" : "w3-hover-black"
+        }`}
+      >
+        <i className="fa fa-pencil-alt w3-xxlarge" />
+        <p>Sanat</p>
+      </Link>
 
       {kullanici ? (
         <div

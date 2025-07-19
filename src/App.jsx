@@ -13,7 +13,7 @@ import Comments from "./sablonlar/Comments";
 import Signin from "./sablonlar/Signin";
 import { AuthProvider } from "./sablonlar/AuthContext";
 import Footer from "./sablonlar/Footer";
-
+import Art from "./sablonlar/Art";
 function Layout({ children }) {
   const location = useLocation();
 
@@ -25,6 +25,7 @@ function Layout({ children }) {
     location.pathname !== "/contact" &&
     location.pathname !== "/register" &&
     location.pathname !== "/signin" &&
+    location.pathname !== "/art" &&
     location.pathname !== "/comments";
 
   return (
@@ -55,6 +56,8 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/signin" element={<Signin />} />
             <Route path="/comments" element={<Comments />} />
+            <Route path="art" element={<Art />} />
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

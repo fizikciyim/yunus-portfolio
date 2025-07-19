@@ -124,7 +124,7 @@ function About() {
           </div>
         </div>
         <p className="w3-wide mb-0">
-          <i class="devicon-html5-plain me-1 colored"></i>
+          <i className="devicon-html5-plain me-1 colored"></i>
           Html
         </p>
         <div className="w3-white mb-3">
@@ -133,7 +133,7 @@ function About() {
           </div>
         </div>
         <p className="w3-wide mb-0">
-          <i class="devicon-css3-plain me-1 colored"></i>Css
+          <i className="devicon-css3-plain me-1 colored"></i>Css
         </p>
         <div className="w3-white mb-3">
           <div className="w3-dark-grey" style={getBarStyle(80)}>
@@ -141,7 +141,7 @@ function About() {
           </div>
         </div>
         <p className="w3-wide mb-0">
-          <i class="devicon-javascript-plain  me-1 colored"></i>
+          <i className="devicon-javascript-plain  me-1 colored"></i>
           JavaScript
         </p>
         <div className="w3-white mb-3">
@@ -150,7 +150,7 @@ function About() {
           </div>
         </div>
         <p className="w3-wide mb-0">
-          <i class="devicon-react-original me-1 colored"></i>
+          <i className="devicon-react-original me-1 colored"></i>
           React
         </p>
         <div className="w3-white mb-3">
@@ -177,7 +177,7 @@ function About() {
           </div>
         </div>
         <p className="w3-wide mb-0">
-          <i class="devicon-bootstrap-plain colored me-1"></i>
+          <i className="devicon-bootstrap-plain colored me-1"></i>
           Bootstrap
         </p>
         <div className="w3-white mb-3">
@@ -186,7 +186,7 @@ function About() {
           </div>
         </div>
         <p className="w3-wide mb-0">
-          <i class="devicon-mysql-plain me-1"></i>
+          <i className="devicon-mysql-plain me-1"></i>
           MySQL
         </p>
         <div className="w3-white mb-3">
