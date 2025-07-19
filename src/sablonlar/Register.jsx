@@ -46,7 +46,7 @@ function Register() {
 
   return (
     <>
-      <div className="d-flex justify-content-center align-items-center vh-100 w-100">
+      <div className="d-flex justify-content-center align-items-center flex-grow-1 w-100">
         <div className="w-100" style={{ maxWidth: "400px" }}>
           <form onSubmit={handleSubmit} className="border p-4 rounded">
             <h3 className="text-center mb-4">Kayıt Ol</h3>

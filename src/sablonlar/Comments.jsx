@@ -52,7 +52,7 @@ function Comments() {
     }
   };
   return (
-    <div className="w-100">
+    <div className="w-100 mt-5 mt-md-0">
       <YorumEkle onYorumEklendi={yorumlariGetir} />
 
       <div className="container">

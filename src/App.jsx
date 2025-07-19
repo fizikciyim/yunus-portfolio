@@ -32,13 +32,12 @@ function Layout({ children }) {
       {!isNotFound && <Navbar />}
       {!isNotFound && <Iconbar />}
 
-      <main
-        // className="d-flex flex-column justify-content-center align-items-center"
-        style={{ minHeight: "100vh" }}
-      >
-        {children}
-      </main>
-      <Footer />
+      <div className="d-flex flex-column min-vh-100">
+        <main className="d-flex flex-fill justify-content-center align-items-center">
+          {children}
+        </main>
+        <Footer />
+      </div>
     </>
   );
 }

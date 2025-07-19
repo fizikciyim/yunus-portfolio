@@ -27,6 +27,11 @@ main {
   margin-right: 20px;
 }
 
+/* .deneme {
+  margin-left: 140px;
+  margin-right: 20px;
+} */
+
 /*!??! */
 html,
 body,
@@ -74,15 +79,15 @@ p {
   opacity: 1;
   visibility: visible;
 }
-@media (max-width: 768px) {
+
+/* @media (max-width: 768px) {
   main {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Dikey ortala */
-    align-items: center; /* Yatay ortala */
+    justify-content: center; 
+    align-items: center; 
   }
-}
+} */
 
 .active-link {
   color: #00ff59 !important;
