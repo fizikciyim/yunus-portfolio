@@ -1,88 +1,8 @@
-import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import React, { useState, useRef, useEffect } from "react";
 import { useAuth } from "./AuthContext";
-import { Toast } from "bootstrap";
 import axios from "axios";
+import StarRating from "./StarRating";
 
-function StarRating({ initialRating = 0, onRate }) {
-  const [rating, setRating] = useState(initialRating);
-  const [hover, setHover] = useState(0);
-  const { kullanici } = useAuth();
-
-  const toastRef = useRef(null); // Toast referansı
-
-  useEffect(() => {
-    console.log("initialRating: ", initialRating);
-    setRating(initialRating);
-  }, [initialRating]);
-  const handleClick = (value, e) => {
-    if (!kullanici) {
-      const x = e.clientX;
-      const y = e.clientY;
-
-      // Toast pozisyonunu dinamik olarak ayarla
-      const toastEl = toastRef.current;
-      toastEl.style.left = `${x}px`;
-      toastEl.style.top = `${y}px`;
-
-      // Bootstrap toast'ı elle göster
-      const toast = new Toast(toastEl, {
-        delay: 2000, // 2 saniyede otomatik kapanır
-        autohide: true,
-      });
-      toast.show();
-      return;
-    }
-
-    setRating(value);
-    if (onRate) onRate(value);
-  };
-
-  return (
-    <>
-      <span>
-        {[1, 2, 3, 4, 5].map((value) => {
-          let icon;
-          const currentRating = hover || rating;
-
-          if (value <= Math.floor(currentRating)) icon = <FaStar />;
-          else if (value - currentRating < 1) icon = <FaStarHalfAlt />;
-          else icon = <FaRegStar />;
-
-          return React.cloneElement(icon, {
-            key: value,
-            color: "gold",
-            size: 24,
-            style: { cursor: "pointer", marginRight: 4 },
-            onClick: (e) => handleClick(value, e),
-            onMouseEnter: () => setHover(value),
-            onMouseLeave: () => setHover(0),
-          });
-        })}
-      </span>
-
-      {/* Bootstrap toast */}
-      <div
-        ref={toastRef}
-        className="toast position-fixed text-bg-danger"
-        style={{
-          position: "fixed", // BURASI sabit kalması için kesinlikle fixed olmalı
-          top: "20px", // ekranın üstünden 20px aşağıda
-          left: "50%", // yatayda ortalanmış
-          transform: "translateX(-50%)", // tam ortalama için
-          zIndex: 9999,
-        }}
-        role="alert"
-        aria-live="assertive"
-        aria-atomic="true"
-      >
-        <div className="toast-body d-flex justify-content-between align-items-center">
-          Puan vermek için giriş yapmalısınız!
-        </div>
-      </div>
-    </>
-  );
-}
 function Art() {
   const [ratings, setRatings] = useState({});
   const { kullanici } = useAuth(); // Giriş yapan kullanıcıyı al

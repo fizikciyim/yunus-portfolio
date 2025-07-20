@@ -14,6 +14,8 @@ import Signin from "./sablonlar/Signin";
 import { AuthProvider } from "./sablonlar/AuthContext";
 import Footer from "./sablonlar/Footer";
 import Art from "./sablonlar/Art";
+import ScrollToTop from "./sablonlar/ScrollToTop";
+
 function Layout({ children }) {
   const location = useLocation();
 
@@ -47,6 +49,7 @@ function App() {
   return (
     <AuthProvider>
       <Router>
+        <ScrollToTop /> {/* Buraya EKLİYORSUN */}
         <Layout>
           <Routes>
             <Route path="/" element={<Header />} />

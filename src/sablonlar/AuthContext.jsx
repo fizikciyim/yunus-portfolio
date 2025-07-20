@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 
 export const AuthContext = createContext();
+import { jwtDecode } from "jwt-decode";
 
 export const AuthProvider = ({ children }) => {
   const [kullanici, setKullanici] = useState(null);
@@ -39,13 +40,18 @@ export const AuthProvider = ({ children }) => {
     }
   }, [kullanici]);
 
-  const login = (kullaniciBilgisi) => {
+  const login = (token) => {
+    const decoded = jwtDecode(token); // { id, userName } gibi bilgileri çıkar
+    console.log("tokennnn: ", token);
+
     //! 1000 --> 1 saniye, 1000*60 --> 1 dakika yapar
     const oturumSuresi = 10 * 60 * 1000; // 30 dakika
     const oturumSonu = Date.now() + oturumSuresi;
 
     const veriler = {
-      ...kullaniciBilgisi,
+      id: decoded.id,
+      userName: decoded.userName,
+      token,
       oturumSonu,
     };
 

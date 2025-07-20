@@ -39,7 +39,8 @@ function Signin() {
       );
       console.log("Giriş cevabı:", response.data.kullanici);
 
-      login(response.data.kullanici); // sadece bu kadar
+      console.log("Gelen token:", response.data.token);
+      login(response.data.token);
 
       setgirisBilgileri({
         userName: "",
