@@ -92,23 +92,24 @@ function Art() {
   useEffect(() => {
     const fetchOrtalamaPuanlar = async () => {
       const yeniPuanlar = {};
-      console.log("fetchortalamapuanlar");
 
       for (let i = 0; i < resimler.length; i++) {
         try {
           const res = await axios.get(
             `https://api.yunuskarasen.com/api/puanlar/ortalama/${i}`
           );
-          yeniPuanlar[i] = res.data.ortalama || "Henüz yok";
-          console.log("yenipuanlar[i]: ", yeniPuanlar[i]);
+
+          // ortalama ve toplam birlikte kaydediliyor
+          yeniPuanlar[i] = {
+            ortalama: res.data.ortalama || "Henüz yok",
+            toplam: res.data.toplam || 0,
+          };
         } catch (err) {
-          yeniPuanlar[i] = "Hata";
+          yeniPuanlar[i] = { ortalama: "Hata", toplam: 0 };
         }
       }
 
       setOrtalamaPuanlar(yeniPuanlar);
-      console.log("yenipuanlar: ", yeniPuanlar);
-      console.log("ortalamapuanlar: ", ortalamaPuanlar);
     };
 
     fetchOrtalamaPuanlar();
@@ -146,7 +147,10 @@ function Art() {
       );
       setOrtalamaPuanlar((prev) => ({
         ...prev,
-        [index]: res.data.ortalama || "Henüz yok",
+        [index]: {
+          ortalama: res.data.ortalama || "Henüz yok",
+          toplam: res.data.toplam || 0,
+        },
       }));
       console.log(
         `Puan başarıyla gönderildi. Resim ${index}, Puan: ${newRating}`
@@ -180,7 +184,15 @@ function Art() {
       style={{ maxWidth: "1200px" }}
     >
       <h2 className="text-center mb-4">Sanat Galerim</h2>
-
+      <p
+        className="text-center mb-5"
+        style={{ maxWidth: "700px", margin: "0 auto", fontSize: "1.1rem" }}
+      >
+        Bu sayfada yer alan tüm çizimler bana aittir. Sanat, yazılım gibi teknik
+        becerilerimin yanında kişisel ifade biçimimdir. Bu siteyi geliştirerek
+        hem çizimlerimi sergilemek hem de React, Node.js ve veritabanı gibi
+        teknolojilerle neler yapabildiğimi göstermek istedim.
+      </p>
       <div
         className="masonry-wrapper mb-3"
         style={{
@@ -209,23 +221,34 @@ function Art() {
                 }}
                 onClick={() => setModalResim(resim)}
               />
-              <div className="card-body text-center ">
-                <h5 className="card-title">{resim.baslik}</h5>
-                <StarRating
-                  initialRating={parseFloat(ortalamaPuanlar[index]) || 0}
-                  onRate={(newRating) => handleRate(index, newRating)}
-                />
+              <div
+                className="card-body text-center p-2"
+                style={{ backgroundColor: "gray" }}
+              >
+                <h5 className="card-title fw-bold">{resim.baslik}</h5>
+                <div className="d-flex align-items-center justify-content-center">
+                  <StarRating
+                    initialRating={
+                      parseFloat(ortalamaPuanlar[index]?.ortalama) || 0
+                    }
+                    onRate={(newRating) => handleRate(index, newRating)}
+                  />
+                  <span
+                    className="ms-2 text-muted fw-bold"
+                    style={{ fontSize: "1rem" }}
+                  >
+                    ({ortalamaPuanlar[index]?.toplam ?? "?"})
+                  </span>
+                </div>
                 {ratings[index] && (
                   <p className="mt-1 text-muted" style={{ fontSize: "0.9rem" }}>
                     Senin puanın: <strong>{ratings[index]}</strong>
                   </p>
                 )}
-                <p className="mt-2" style={{ color: "black" }}>
+                <p className="mt-2 mb-0" style={{ color: "black" }}>
                   Ortalama Puan:{" "}
                   <strong>
-                    {ortalamaPuanlar[index] !== undefined
-                      ? ortalamaPuanlar[index]
-                      : "Yükleniyor..."}
+                    {ortalamaPuanlar[index]?.ortalama ?? "Yükleniyor..."}
                   </strong>
                 </p>
               </div>
