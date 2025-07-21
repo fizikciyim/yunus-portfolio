@@ -196,6 +196,16 @@ function About() {
         </div>
 
         <p className="w3-wide mb-0">
+          <i className="devicon-git-plain colored me-1"></i>
+          Git
+        </p>
+        <div className="w3-white mb-3">
+          <div className="w3-dark-grey" style={getBarStyle(90)}>
+            %80
+          </div>
+        </div>
+
+        <p className="w3-wide mb-0">
           <i className="fas fa-flask" style={{ color: "#4caf50" }}></i>
           <i className="fas fa-lightbulb" style={{ color: "#ffeb3b" }}></i>
           <i className="fas fa-rocket" style={{ color: "#f44336" }}></i>

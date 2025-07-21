@@ -7,7 +7,6 @@ function Art() {
   const [ratings, setRatings] = useState({});
   const { kullanici } = useAuth(); // Giriş yapan kullanıcıyı al
 
-  console.log("kullanıcı", kullanici);
   const [ortalamaPuanlar, setOrtalamaPuanlar] = useState({});
   useEffect(() => {
     const fetchOrtalamaPuanlar = async () => {
@@ -35,16 +34,11 @@ function Art() {
     fetchOrtalamaPuanlar();
   }, []);
 
-  useEffect(() => {
-    console.log("Güncellenmiş ortalamaPuanlar:", ortalamaPuanlar);
-  }, [ortalamaPuanlar]);
-
   const handleRate = async (index, newRating) => {
     setRatings((prev) => ({
       ...prev,
       [index]: newRating,
     }));
-    console.log(`Resim ${index} için oy verildi:`, newRating);
 
     // Backend çağrısını burada yapabilirsin
     try {
@@ -52,11 +46,6 @@ function Art() {
         alert("Lütfen giriş yapın.");
         return;
       }
-      console.log("aaa", {
-        kullanici_id: kullanici.userName,
-        resim_id: index,
-        puan: newRating,
-      });
       await axios.post("https://api.yunuskarasen.com/api/puanlar", {
         kullanici_id: kullanici.id,
         resim_id: index, // backend'de bunu şimdilik resim_id gibi ele al
@@ -72,9 +61,6 @@ function Art() {
           toplam: res.data.toplam || 0,
         },
       }));
-      console.log(
-        `Puan başarıyla gönderildi. Resim ${index}, Puan: ${newRating}`
-      );
     } catch (error) {
       console.error("Puan gönderilirken hata oluştu:", error);
     }
@@ -160,11 +146,25 @@ function Art() {
                     ({ortalamaPuanlar[index]?.toplam ?? "?"})
                   </span>
                 </div>
-                {ratings[index] && (
-                  <p className="mt-1 text-muted" style={{ fontSize: "0.9rem" }}>
-                    Senin puanın: <strong>{ratings[index]}</strong>
+                {kullanici ? (
+                  ratings[index] ? (
+                    <p
+                      className="mt-1 text-muted"
+                      style={{ fontSize: "0.8rem" }}
+                    >
+                      Senin puanın: <strong>{ratings[index]}</strong>
+                    </p>
+                  ) : (
+                    <p className="m-0" style={{ fontSize: "0.8rem" }}>
+                      Oy verebilirsiniz.
+                    </p>
+                  )
+                ) : (
+                  <p className="m-0" style={{ fontSize: "0.8rem" }}>
+                    Oy vermek için giriş yapmalısınız.
                   </p>
                 )}
+
                 <p className="mt-2 mb-0" style={{ color: "black" }}>
                   Ortalama Puan:{" "}
                   <strong>
