@@ -5,6 +5,30 @@ import { AuthContext } from "./AuthContext"; // path'i kendi dosyana göre ayarl
 
 function Navbar() {
   const location = useLocation(); // Şu anki URL bilgisi burada
+  // iconu sayfaya göre belirle
+  const getIconClass = (path) => {
+    switch (path) {
+      case "/":
+        return "fa-home";
+      case "/about":
+        return "fa-info-circle";
+      case "/photos":
+        return "fa-folder-open";
+      case "/contact":
+        return "fa-envelope";
+      case "/comments":
+        return "fa-comments";
+      case "/art":
+        return "fa-pencil-alt";
+      case "/signin":
+        return "fa-sign-in-alt";
+      case "/register":
+        return "fa-user-plus";
+
+      default:
+        return "fa-home";
+    }
+  };
 
   const sayfaBasliklari = {
     "/": "Ana Sayfa",
@@ -12,6 +36,7 @@ function Navbar() {
     "/photos": "Projelerim",
     "/contact": "İletişim",
     "/comments": "Yorumlar",
+    "/art": "Sanat",
     "/signin": "Giriş Yap",
     "/register": "Kayıt Ol",
   };
@@ -83,7 +108,13 @@ function Navbar() {
       style={{ position: "fixed", top: 0, width: "100%", zIndex: 1050 }}
     >
       <Link className="navbar-brand" to={location.pathname}>
-        {baslik}
+        <div className="d-flex   align-items-center">
+          <i
+            className={`fa ${getIconClass(location.pathname)} w3-xxlarge me-3`}
+            style={{ color: "white" }}
+          />{" "}
+          <h2 className="mb-0">{baslik}</h2>
+        </div>
       </Link>
 
       <div style={{ display: "flex", alignItems: "center" }}>
@@ -118,6 +149,10 @@ function Navbar() {
         <ul className="navbar-nav me-auto">
           <li className="nav-item">
             <Link className={getNavLinkClass("/")} to="/" onClick={closeNavbar}>
+              <i
+                className="fa fa-home w3-xlarge me-2"
+                style={{ color: "white" }}
+              />
               Ana Sayfa
             </Link>
           </li>
@@ -127,6 +162,10 @@ function Navbar() {
               to="/about"
               onClick={closeNavbar}
             >
+              <i
+                className="fa fa-info-circle w3-xlarge me-2"
+                style={{ color: "white" }}
+              />
               Hakkımda
             </Link>
           </li>
@@ -136,6 +175,10 @@ function Navbar() {
               to="/photos"
               onClick={closeNavbar}
             >
+              <i
+                className="fa fa-folder-open w3-xlarge me-2"
+                style={{ color: "white" }}
+              />
               Projelerim
             </Link>
           </li>
@@ -145,6 +188,10 @@ function Navbar() {
               to="/contact"
               onClick={closeNavbar}
             >
+              <i
+                className="fa fa-envelope w3-xlarge me-2"
+                style={{ color: "white" }}
+              />
               İletişim
             </Link>
           </li>
@@ -154,6 +201,10 @@ function Navbar() {
               to="/comments"
               onClick={closeNavbar}
             >
+              <i
+                className="fa fa-comments w3-xlarge me-2"
+                style={{ color: "white" }}
+              />
               Yorumlar
             </Link>
           </li>
@@ -163,6 +214,10 @@ function Navbar() {
               to="/art"
               onClick={closeNavbar}
             >
+              <i
+                className="fa fa-pencil-alt w3-xlarge me-2"
+                style={{ color: "white" }}
+              />
               Sanat
             </Link>
           </li>
@@ -173,16 +228,24 @@ function Navbar() {
             className="btn btn-danger pe-2 ps-2 pt-0 pb-0 "
             onClick={logout}
           >
+            <i
+              className="fa fa-sign-out-alt w3-xlarge me-2"
+              style={{ color: "white" }}
+            />
             Çıkış Yap
           </button>
         ) : (
-          <div className="d-flex">
+          <div className="d-flex my-2">
             <Link
               className={`${getNavLinkClass("/signin")} me-5 `}
               to="/signin"
               onClick={closeNavbar}
               style={{ color: "#e1eef4" }}
             >
+              <i
+                className="fa fa-sign-in-alt w3-xlarge me-2"
+                style={{ color: "white" }}
+              />
               Giriş Yap
             </Link>
             <Link
@@ -191,6 +254,10 @@ function Navbar() {
               onClick={closeNavbar}
               style={{ color: "#e1eef4" }}
             >
+              <i
+                className="fa fa-user-plus w3-xlarge me-2"
+                style={{ color: "white" }}
+              />
               Kayıt Ol
             </Link>
           </div>

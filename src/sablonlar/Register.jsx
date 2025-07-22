@@ -10,7 +10,6 @@ function Register() {
     userName: "",
     password: "",
     confirmPassword: "",
-    terms: false,
   });
 
   const [kayit, setKayit] = useState(false);
@@ -27,14 +26,14 @@ function Register() {
           form
         );
         console.log("Kayıt başarılı:", response.data);
+        setKayit(true);
+
         setForm({
           name: "",
           userName: "",
           password: "",
           confirmPassword: "",
-          terms: false,
         });
-        setKayit(true);
         // istersen yönlendirme yaparsın, formu sıfırlarsın vs.
       } catch (error) {
         console.error("Kayıt hatası:", error);

@@ -4,7 +4,7 @@ function Contact() {
   return (
     <>
       {/* Contact Section */}
-      <div className="pt-5 w3-content w3-text-grey w-100" id="contact">
+      <div className="w3-padding-64 w3-content w3-text-grey w-100" id="contact">
         <h2 className="w3-text-light-grey">Bana Ulaşın</h2>
         <hr style={{ width: 200 }} className="w3-opacity" />
         <div className="w3-section">
