@@ -102,6 +102,10 @@ function Navbar() {
     return location.pathname === path ? "nav-link active-link" : "nav-link";
   };
 
+  const getIconStyle = (path) => ({
+    color: location.pathname === path ? "white" : "",
+  });
+
   return (
     <nav
       className="navbar  navbar-dark bg-dark px-3 d-sm-none"
@@ -151,7 +155,7 @@ function Navbar() {
             <Link className={getNavLinkClass("/")} to="/" onClick={closeNavbar}>
               <i
                 className="fa fa-home w3-xlarge me-2"
-                style={{ color: "white" }}
+                style={getIconStyle("/")}
               />
               Ana Sayfa
             </Link>
@@ -164,7 +168,7 @@ function Navbar() {
             >
               <i
                 className="fa fa-info-circle w3-xlarge me-2"
-                style={{ color: "white" }}
+                style={getIconStyle("/about")}
               />
               Hakkımda
             </Link>
@@ -177,7 +181,7 @@ function Navbar() {
             >
               <i
                 className="fa fa-folder-open w3-xlarge me-2"
-                style={{ color: "white" }}
+                style={getIconStyle("/photos")}
               />
               Projelerim
             </Link>
@@ -190,7 +194,7 @@ function Navbar() {
             >
               <i
                 className="fa fa-envelope w3-xlarge me-2"
-                style={{ color: "white" }}
+                style={getIconStyle("/contact")}
               />
               İletişim
             </Link>
@@ -203,7 +207,7 @@ function Navbar() {
             >
               <i
                 className="fa fa-comments w3-xlarge me-2"
-                style={{ color: "white" }}
+                style={getIconStyle("/comments")}
               />
               Yorumlar
             </Link>
@@ -216,7 +220,7 @@ function Navbar() {
             >
               <i
                 className="fa fa-pencil-alt w3-xlarge me-2"
-                style={{ color: "white" }}
+                style={getIconStyle("/art")}
               />
               Sanat
             </Link>
@@ -224,41 +228,34 @@ function Navbar() {
         </ul>
 
         {isLoggedIn ? (
-          <button
-            className="btn btn-danger pe-2 ps-2 pt-0 pb-0 "
-            onClick={logout}
-          >
-            <i
-              className="fa fa-sign-out-alt w3-xlarge me-2"
-              style={{ color: "white" }}
-            />
+          <button className="btn btn-danger px-3 py-1 " onClick={logout}>
+            <i className="fa fa-sign-out-alt w3-xlarge me-2" />
             Çıkış Yap
           </button>
         ) : (
           <div className="d-flex my-2">
             <Link
-              className={`${getNavLinkClass("/signin")} me-5 `}
+              className={`${getNavLinkClass("/signin")} me-3 `}
               to="/signin"
               onClick={closeNavbar}
-              style={{ color: "#e1eef4" }}
+              style={{
+                color: "#e1eef4",
+              }}
             >
-              <i
-                className="fa fa-sign-in-alt w3-xlarge me-2"
-                style={{ color: "white" }}
-              />
-              Giriş Yap
+              <button className="btn btn-success">
+                <i className="fa fa-sign-in-alt w3-xlarge me-2" />
+                Giriş Yap
+              </button>
             </Link>
             <Link
               className={getNavLinkClass("/register")}
               to="/register"
               onClick={closeNavbar}
-              style={{ color: "#e1eef4" }}
             >
-              <i
-                className="fa fa-user-plus w3-xlarge me-2"
-                style={{ color: "white" }}
-              />
-              Kayıt Ol
+              <button className="btn btn-success">
+                <i className="fa fa-user-plus w3-xlarge me-2" />
+                Kayıt Ol
+              </button>
             </Link>
           </div>
         )}

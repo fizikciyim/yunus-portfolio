@@ -7,6 +7,8 @@ import { Toast } from "bootstrap";
 // Giriş ekranı
 
 function Signin() {
+  const [unuttum, setUnuttum] = useState(false);
+
   const navigate = useNavigate();
   const { kullanici, login, logout } = useAuth();
 
@@ -165,6 +167,29 @@ function Signin() {
             >
               Kayıt ol
             </button>
+          </div>
+          <div className="text-center mt-3 d-flex flex-column justify-content-center align-items-center">
+            <button
+              className="btn btn-link p-0"
+              onClick={() => {
+                setUnuttum(true);
+                setTimeout(() => {
+                  setUnuttum(false);
+                }, 5000); // 3 saniye sonra false yap
+              }}
+            >
+              Şifremi unuttum
+            </button>
+            <p
+              className="m-0 me-2 mt-2 fw-bold"
+              style={{
+                color: "red",
+                visibility: unuttum ? "visible" : "hidden",
+                height: "1.5em", // sabit yükseklik vererek kaymayı engeller
+              }}
+            >
+              Henüz şifre sıfırlama bölümü yok, unutmasaydın.
+            </p>
           </div>
         </div>
       </div>
