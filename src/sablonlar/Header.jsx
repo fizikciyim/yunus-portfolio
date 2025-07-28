@@ -9,8 +9,9 @@ function Header() {
           src="foto.jpeg"
           alt="boy"
           style={{
-            width: 500,
-            height: 500,
+            width: "100%", // genişlik kapsayıcının tamamı kadar
+            maxWidth: 500, // ama maksimum 500 piksel olabilir
+            height: 500, // yüksekliği otomatik ayarlanır
             objectFit: "cover",
             objectPosition: "center",
           }}

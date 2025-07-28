@@ -20,7 +20,16 @@ function Iconbar() {
           </p>
         </div>
       ) : (
-        <img src="yunus.png" style={{ width: "100%" }} />
+        <img
+          src="foto.jpeg"
+          style={{
+            width: 100,
+            height: 100,
+            objectFit: "cover",
+            objectPosition: "center",
+            filter: "brightness(0.7)", // 0.6 ile %40 karartma
+          }}
+        />
       )}
 
       <Link
