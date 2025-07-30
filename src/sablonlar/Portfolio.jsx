@@ -41,62 +41,66 @@ function Proje({ baslik, konu, diller, github, link, govde }) {
           marginTop: "10px",
         }}
       >
-        <div>
+        <div className="d-flex ">
           {github &&
             github.map((link, index) => (
+              <div className="d-flex">
+                <a
+                  className={`${index === 1 ? "ms-2" : "me-3"} text-nowrap`}
+                  key={index}
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    color: "#4ea1f7",
+                    textDecoration: "none",
+                    fontWeight: "600",
+                    marginBottom: "5px",
+                  }}
+                >
+                  <i
+                    className="fa fa-github {index === 1 ? ms-2: me-1 } mt-1"
+                    style={{ marginRight: 10, color: "#4ea1f7" }}
+                  ></i>
+                  GitHub
+                </a>
+              </div>
+            ))}
+          {link && (
+            <div className="d-flex ms-4 me-2">
               <a
-                className="{index === 1 ? ms-2: me-3 }"
-                key={index}
+                className="text-nowrap"
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  color: "#4ea1f7",
+                  color: "#FF0000",
                   textDecoration: "none",
                   fontWeight: "600",
-                  marginBottom: "5px",
                 }}
               >
-                <i
-                  className="fa fa-github {index === 1 ? ms-2: me-1 } "
-                  style={{ marginRight: 10 }}
-                ></i>
-                GitHub
+                {link.includes("youtube.com") || link.includes("youtu.be") ? (
+                  <>
+                    <i
+                      className="fa fa-youtube-play me-1"
+                      aria-hidden="true"
+                      style={{ marginRight: 10 }}
+                    ></i>
+                    Youtube
+                  </>
+                ) : (
+                  <>
+                    {" "}
+                    <i
+                      className="fa fa-external-link me-1"
+                      aria-hidden="true"
+                      style={{ marginRight: 10 }}
+                    ></i>
+                    Link
+                  </>
+                )}
               </a>
-            ))}
-          {link && (
-            <a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                color: "#FF0000",
-                textDecoration: "none",
-                fontWeight: "600",
-                marginLeft: 15,
-              }}
-            >
-              {link.includes("youtube.com") || link.includes("youtu.be") ? (
-                <>
-                  <i
-                    className="fa fa-youtube-play me-1"
-                    aria-hidden="true"
-                    style={{ marginRight: 10 }}
-                  ></i>
-                  Youtube
-                </>
-              ) : (
-                <>
-                  {" "}
-                  <i
-                    className="fa fa-external-link me-1"
-                    aria-hidden="true"
-                    style={{ marginRight: 10 }}
-                  ></i>
-                  Link
-                </>
-              )}
-            </a>
+            </div>
           )}
         </div>
         <Modal baslik={baslik} govde={govde} />
