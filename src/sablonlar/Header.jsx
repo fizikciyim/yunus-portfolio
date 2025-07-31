@@ -6,7 +6,7 @@ function Header() {
         <h1 className="w3-jumbo">Yunus Karaşen</h1>
         <p>Yazılımcı</p>
         <img
-          src="foto.jpeg"
+          src="/foto.jpeg"
           alt="boy"
           style={{
             width: "100%", // genişlik kapsayıcının tamamı kadar
