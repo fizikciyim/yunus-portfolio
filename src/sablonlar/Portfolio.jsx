@@ -138,12 +138,20 @@ function Portfolio() {
       "https://github.com/fizikciyim/yunus-portfolio-backend",
     ],
     link: "https://www.yunuskarasen.com",
-    govde: `Bu proje, ReactJS kullanılarak geliştirilen kişisel portföy sitemdir.
-     Web sitesi tamamen responsive tasarıma sahiptir ve mobil uyumludur.
-      Ana sayfada kısa bir tanıtım, projelerim sekmesinde GitHub üzerinden 
-      bağlantılı olarak yaptığım çalışmalara erişim sağlanmakta, iletişim kısmında
-       ise benimle e-posta üzerinden kolayca iletişime geçilebilmektedir.
-        Tasarımda sade ve modern bir stil tercih edilmiştir.`,
+    govde: `🇹🇷 Türkçe
+💻 Kendi full stack portföy sitemi tamamladım! 🎨
+🚀 Frontend: HTML, CSS, JavaScript ve React
+🔧 Backend: Node.js + Express.js
+🗄️ Veritabanı: MySQL
+
+💡 Tamamen mobil uyumlu. Neler var? 
+• Hakkımda bilgilerim
+• Projelerim
+• İletişim bölümü
+• Kullanıcı kayıt & giriş sistemi
+• Giriş yapan kullanıcılar siteye yorum yapabiliyor
+• Karakalem çizimlerimi paylaştığım bölümde her bir resim puanlanabiliyor 
+• Portföy sitemde hem yazılım yolculuğumu hem de çizim tutkumu yansıtmak istedim.`,
   };
 
   const ucgenArbitraj = {
