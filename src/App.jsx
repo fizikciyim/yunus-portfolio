@@ -35,7 +35,7 @@ function Layout({ children }) {
       {!isNotFound && <Navbar />}
       {!isNotFound && <Iconbar />}
 
-      <div className="d-flex flex-column min-vh-100">
+      <div className="d-flex flex-column min-vh-100 divdiv">
         <main className="d-flex flex-fill justify-content-center align-items-center">
           {children}
         </main>
