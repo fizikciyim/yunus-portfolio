@@ -12,7 +12,7 @@ function Modal({ baslik, govde }) {
           Detaylar
         </button>
         <div className="modal fade" id={modalId}>
-          <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-dialog modal-dialog-centered modal-lg">
             <div className="modal-content">
               <div className="modal-header">
                 <h4 className="modal-title">{baslik}</h4>
@@ -23,7 +23,11 @@ function Modal({ baslik, govde }) {
                 ></button>
               </div>
 
-              <div className="modal-body">{govde}</div>
+              {/* <div className="modal-body">{govde}</div> */}
+              <div
+                className="modal-body"
+                dangerouslySetInnerHTML={{ __html: govde }}
+              ></div>
 
               <div className="modal-footer">
                 <button

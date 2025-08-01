@@ -11,7 +11,8 @@ Merhaba! Bu proje, yazılım geliştirme alanındaki yetkinliklerimi ve projeler
 - Proje tanıtım bölümü
 - İletişim formu (API destekli)
 - Kullanıcı kayıt ve giriş sistemi
-- Yorumlar bölümü (Kayıtlı kullanıcılar yorum bırakabilir)
+- Yorumlar bölümü (Sadece giriş yapmış kullanıcılar yorum bırakabilir)
+- Karakalem çizimlerim ve çizim puanlama
 
 ## Kullanılan Teknolojiler
 

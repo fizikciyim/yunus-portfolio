@@ -116,8 +116,21 @@ function Portfolio() {
     diller: ["Go", "Python"],
     github: ["https://github.com/fizikciyim/metin2-balik-botu"],
     link: "https://www.youtube.com/watch?v=GEApYe-mTus",
-    govde:
-      "Birden fazla hesap için çalışan Metin2 eski tip balık botu Metin2TR’de 2019 yılına kadar geçerli olan ve günümüzde birçok PvP sunucusunda halakullanılan klasik balık tutma sistemi için geliştirilmiş bir bottur.",
+    govde: `
+  <p style="color: black;">
+      Birden fazla hesap için çalışan <strong>Metin2</strong> eski tip balık botu, Metin2TR’de 2019 yılına kadar geçerli olan
+      ve günümüzde birçok PvP sunucusunda hala kullanılan klasik balık tutma sistemi için geliştirilmiştir.
+    </p>
+
+    <h3>Kullanım</h3>
+    <p style="color: black;">Botu kullanmak için aşağıdaki adımları takip edin:</p>
+    <ol>
+      <li>Arayüzü çalıştırın.</li>
+      <li>Kaç client balık tutacağını seçin.</li>
+      <li>Envanterin ilk slotunun koordinatlarını sağ üstten takip ederek girin.</li>
+      <li>Kamerayı karakterin kafasına en yukarıdan ve sonuna kadar yaklaştırın.</li>
+      <li>Programı başlatın.</li>
+    </ol>`,
   };
 
   const metin2TRbalik = {
@@ -138,20 +151,24 @@ function Portfolio() {
       "https://github.com/fizikciyim/yunus-portfolio-backend",
     ],
     link: "https://www.yunuskarasen.com",
-    govde: `🇹🇷 Türkçe
-💻 Kendi full stack portföy sitemi tamamladım! 🎨
-🚀 Frontend: HTML, CSS, JavaScript ve React
-🔧 Backend: Node.js + Express.js
-🗄️ Veritabanı: MySQL
+    govde: `
+  <p style="color: black;">
+      Merhaba! Bu proje, yazılım geliştirme alanındaki yetkinliklerimi
+       ve projelerimi sergilemek amacıyla oluşturduğum kişisel
+        portföy sitemdir. Full-stack geliştirme 
+        yeteneklerimi göstermek için hem frontend hem backend 
+        taraflarını sıfırdan oluşturdum.    </p>
 
-💡 Tamamen mobil uyumlu. Neler var? 
-• Hakkımda bilgilerim
-• Projelerim
-• İletişim bölümü
-• Kullanıcı kayıt & giriş sistemi
-• Giriş yapan kullanıcılar siteye yorum yapabiliyor
-• Karakalem çizimlerimi paylaştığım bölümde her bir resim puanlanabiliyor 
-• Portföy sitemde hem yazılım yolculuğumu hem de çizim tutkumu yansıtmak istedim.`,
+    <h4>Özellikler</h3>
+    <ul>
+      <li>Mobil uyumlu tasarım</li>
+      <li>Hakkımda bölümü</li>
+      <li>Projelerim bölümü</li>
+      <li>İletişim formu (API destekli)</li>
+      <li>Kullanıcı kayıt ve giriş sistemi</li>
+      <li>Yorumlar bölümü (Sadece giriş yapmış kullanıcılar yorum bırakabilir)</li>
+      <li>Çizimlerimi puanlama bölümü</li>
+    </ul>`,
   };
 
   const ucgenArbitraj = {

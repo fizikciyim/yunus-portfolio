@@ -21,7 +21,7 @@ function Iconbar() {
         </div>
       ) : (
         <img
-          src="foto.jpeg"
+          src="/foto.jpeg"
           style={{
             width: 100,
             height: 100,
