@@ -15,6 +15,7 @@ import { AuthProvider } from "./sablonlar/AuthContext";
 import Footer from "./sablonlar/Footer";
 import Art from "./sablonlar/Art";
 import ScrollToTop from "./sablonlar/ScrollToTop";
+import ResetPassword from "./sablonlar/ResetPassword";
 
 function Layout({ children }) {
   const location = useLocation();
@@ -28,6 +29,7 @@ function Layout({ children }) {
     location.pathname !== "/register" &&
     location.pathname !== "/signin" &&
     location.pathname !== "/art" &&
+    location.pathname !== "/reset-password" &&
     location.pathname !== "/comments";
 
   return (
@@ -59,7 +61,8 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/signin" element={<Signin />} />
             <Route path="/comments" element={<Comments />} />
-            <Route path="art" element={<Art />} />
+            <Route path="/art" element={<Art />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>

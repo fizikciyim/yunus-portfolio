@@ -162,7 +162,6 @@ function Signin() {
               onClick={() => {
                 // yönlendirme işlemi burada yapılabilir
                 navigate("/register");
-                console.log("Kayıt sayfasına yönlendir");
               }}
             >
               Kayıt ol
@@ -172,10 +171,8 @@ function Signin() {
             <button
               className="btn btn-link p-0"
               onClick={() => {
-                setUnuttum(true);
-                setTimeout(() => {
-                  setUnuttum(false);
-                }, 5000); // 3 saniye sonra false yap
+                // yönlendirme işlemi burada yapılabilir
+                navigate("/reset-password");
               }}
             >
               Şifremi unuttum

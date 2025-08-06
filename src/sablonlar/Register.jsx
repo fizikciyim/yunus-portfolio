@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 function Register() {
   const [form, setForm] = useState({
     name: "",
+    email: "",
     userName: "",
     password: "",
     confirmPassword: "",
@@ -30,6 +31,7 @@ function Register() {
 
         setForm({
           name: "",
+          email: "",
           userName: "",
           password: "",
           confirmPassword: "",
@@ -59,6 +61,19 @@ function Register() {
                 id="name"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="eMail" className="form-label">
+                e-Mail Adresi
+              </label>
+              <input
+                type="email"
+                className="form-control"
+                id="eMail"
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
                 required
               />
             </div>
