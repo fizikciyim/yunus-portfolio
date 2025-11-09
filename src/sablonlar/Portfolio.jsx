@@ -110,6 +110,31 @@ function Proje({ baslik, konu, diller, github, link, govde }) {
 }
 
 function Portfolio() {
+  const sahteAlisveris = {
+    baslik: "Sahte Alışveriş Uygulaması",
+    konu: "React Native ve Node.js ile geliştirilen, gerçek bir e-ticaret uygulamasını simüle eden mobil uygulama.",
+    diller: ["React Native", "Node.js", "Express.js", "MySQL"],
+    github: [" https://github.com/fizikciyim/ShoppingSimulationApp"],
+    link: "https://www.youtube.com/watch?v=örnekVideoLinki", // Eğer videosu yoksa null bırakabilirsin
+    govde: `
+    <p style="color: black;">
+      Bu proje, tam işlevsel bir e-ticaret deneyimini simüle etmek amacıyla geliştirilmiş bir <strong>mobil uygulamadır</strong>.
+      Kullanıcılar ürünleri inceleyebilir, sepete ekleyebilir, favorilere kaydedebilir ve sahte ödeme adımlarını tamamlayabilir.
+    </p>
+  
+    <h4>Öne Çıkan Özellikler</h4>
+    <ul>
+      <li>React Native ile modern ve responsive arayüz</li>
+      <li>Node.js + Express.js tabanlı backend</li>
+      <li>MySQL veritabanı bağlantısı</li>
+      <li>JWT ile kullanıcı kimlik doğrulama</li>
+      <li>Kategori, alt kategori, ürün, sepet ve sipariş sistemleri</li>
+      <li>Dark mode desteği</li>
+      <li>Gerçek zamanlı indirim güncellemeleri (cron job)</li>
+    </ul>
+    `,
+  };
+
   const metin2balik = {
     baslik: "Metin2 Eski Tip Balık Botu",
     konu: "Metin2 oyununda birden fazla hesap için aynı anda balık tutulmasını sağlayan bot.",
@@ -208,6 +233,8 @@ function Portfolio() {
           style={{ gap: "20px", flexWrap: "wrap" }}
         >
           <Proje {...projePortfolyo} />
+          <Proje {...sahteAlisveris} />
+
           <Proje {...metin2balik} />
           <Proje {...metin2TRbalik} />
           <Proje {...ucgenArbitraj} />
