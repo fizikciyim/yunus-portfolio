@@ -110,6 +110,49 @@ function Proje({ baslik, konu, diller, github, link, govde }) {
 }
 
 function Portfolio() {
+  const telegramInstagramBot = {
+    baslik: "Instagram İçerik Görüntüleme Telegram Botu",
+    konu: "Instagram gönderi, reels, story ve öne çıkanları görüntüleyip indirmeyi sağlayan, tamamen Python ile geliştirilmiş ileri seviye Telegram botu.",
+    diller: ["Python"],
+    github: ["https://github.com/fizikciyim/telegram-instagram-bot"],
+    link: "https://t.me/InstagramSaverTR_bot",
+    govde: `
+      <p style="color: black;">
+        Bu proje, Instagram kullanıcılarının (gizli olmayan hesaplar için) içerikleri hızlı, stabil ve kullanıcı dostu bir
+        şekilde görüntülemesini sağlayan <strong>ileri seviye bir Telegram botudur</strong>.
+        Story, reel, gönderi ve öne çıkan klasörler dahil tüm içerikler tek bir Telegram sohbetinden görüntülenebilir ve indirilebilir.
+      </p>
+  
+      <h4>Öne Çıkan Özellikler</h4>
+      <ul>
+        <li>Hikaye, gönderi, reels ve öne çıkan klasör görüntüleme</li>
+        <li>Toplu gönderi indirme</li>
+        <li>Premium üyelik sistemi</li>
+        <li>Shopier ödeme entegrasyonu</li>
+        <li>Günlük kullanım limiti (backend tarafından yönetilir)</li>
+        <li>Full async Python mimarisi</li>
+        <li>FastAPI tabanlı backend</li>
+        <li>MySQL ile kullanıcı, premium ve log yönetimi</li>
+        <li>AWS EC2 üzerinde production ortamı</li>
+        <li>Systemd servisleri ile 7/24 uptime</li>
+      </ul>
+  
+      <h4>Kullanılan Teknolojiler</h4>
+      <ul>
+        <li><strong>Python:</strong> Asenkron bot altyapısı, backend iletişimi</li>
+        <li><strong>FastAPI:</strong> Premium, limit, log ve kullanıcı API yönetimi</li>
+        <li><strong>MySQL:</strong> Premium süreleri, kullanıcılar, loglar, limit sistemleri</li>
+        <li><strong>AWS EC2:</strong> Backend + bot servislerinin sürekli çalıştığı production ortam</li>
+        <li><strong>Shopier Webhook:</strong> Ödeme sonrası premium otomatik aktivasyon</li>
+      </ul>
+  
+      <p style="color: black;">
+        Tamamen üretim seviyesine uygun mimariyle geliştirilen bot, sistem seviyesinde <strong>systemd</strong> servisleri,
+        cron job ile günlük limit sıfırlama, detaylı hata yönetimi ve logging altyapısına sahiptir.
+      </p>
+    `,
+  };
+
   const sahteAlisveris = {
     baslik: "Sahte Alışveriş Uygulaması",
     konu: "React Native ve Node.js ile geliştirilen, gerçek bir e-ticaret uygulamasını simüle eden mobil uygulama.",
@@ -234,6 +277,7 @@ function Portfolio() {
         >
           <Proje {...projePortfolyo} />
           <Proje {...sahteAlisveris} />
+          <Proje {...telegramInstagramBot} />
 
           <Proje {...metin2balik} />
           <Proje {...metin2TRbalik} />
