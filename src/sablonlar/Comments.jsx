@@ -13,7 +13,9 @@ function Comments() {
     setLoading(true); // Yükleme başladı
 
     axios
-      .get("https://api.yunuskarasen.com/api/yorumlar")
+      .get(
+        "https://kaq3gzs1vc.execute-api.eu-west-2.amazonaws.com/prod/api/yorumlar"
+      )
       .then((res) => {
         setYorumlar(res.data);
         setLoading(false); // Yükleme bitti
@@ -34,14 +36,14 @@ function Comments() {
     const userName = kullanici?.userName || "";
     console.log(
       "Silme isteği URL:",
-      `http://api.yunuskarasen.com/api/yorum-sil/${id}?kullaniciAdi=${encodeURIComponent(
+      `https://kaq3gzs1vc.execute-api.eu-west-2.amazonaws.com/prod/api/yorum-sil/${id}?kullaniciAdi=${encodeURIComponent(
         userName
       )}`
     );
 
     try {
       await axios.delete(
-        `http://api.yunuskarasen.com/api/yorum-sil/${id}?kullaniciAdi=${encodeURIComponent(
+        `https://kaq3gzs1vc.execute-api.eu-west-2.amazonaws.com/prod/api/yorum-sil/${id}?kullaniciAdi=${encodeURIComponent(
           kullanici?.userName
         )}`
       );

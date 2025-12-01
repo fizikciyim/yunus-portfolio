@@ -36,7 +36,7 @@ function Signin() {
     setShowToast(false);
     try {
       const response = await axios.post(
-        "https://api.yunuskarasen.com/api/giris",
+        "https://kaq3gzs1vc.execute-api.eu-west-2.amazonaws.com/prod/api/giris",
         girisBilgileri
       );
       console.log("Giriş cevabı:", response.data.kullanici);

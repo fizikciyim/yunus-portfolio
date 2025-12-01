@@ -9,7 +9,7 @@ function ResetPassword() {
   const sifreSifirla = async () => {
     try {
       const response = await fetch(
-        "https://api.yunuskarasen.com/api/sifre-sifirla",
+        "https://kaq3gzs1vc.execute-api.eu-west-2.amazonaws.com/prod/api/sifre-sifirla",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

@@ -19,13 +19,16 @@ function ContactForm() {
     e.preventDefault();
 
     try {
-      await fetch("https://api.yunuskarasen.com/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      await fetch(
+        "https://kaq3gzs1vc.execute-api.eu-west-2.amazonaws.com/prod/api/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       showToast("Mesajınız başarıyla ulaşmıştır.");
       setIsSucccess(true);

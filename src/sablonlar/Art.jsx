@@ -15,7 +15,7 @@ function Art() {
       for (let i = 0; i < resimler.length; i++) {
         try {
           const res = await axios.get(
-            `https://api.yunuskarasen.com/api/puanlar/ortalama/${i}`
+            `https://kaq3gzs1vc.execute-api.eu-west-2.amazonaws.com/prod/api/puanlar/ortalama/${i}`
           );
 
           // ortalama ve toplam birlikte kaydediliyor
@@ -46,13 +46,16 @@ function Art() {
         alert("Lütfen giriş yapın.");
         return;
       }
-      await axios.post("https://api.yunuskarasen.com/api/puanlar", {
-        kullanici_id: kullanici.id,
-        resim_id: index, // backend'de bunu şimdilik resim_id gibi ele al
-        puan: newRating,
-      });
+      await axios.post(
+        "https://kaq3gzs1vc.execute-api.eu-west-2.amazonaws.com/prod/api/puanlar",
+        {
+          kullanici_id: kullanici.id,
+          resim_id: index, // backend'de bunu şimdilik resim_id gibi ele al
+          puan: newRating,
+        }
+      );
       const res = await axios.get(
-        `https://api.yunuskarasen.com/api/puanlar/ortalama/${index}`
+        `https://kaq3gzs1vc.execute-api.eu-west-2.amazonaws.com/prod/api/puanlar/ortalama/${index}`
       );
       setOrtalamaPuanlar((prev) => ({
         ...prev,

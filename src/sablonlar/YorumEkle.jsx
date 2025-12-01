@@ -44,7 +44,7 @@ function YorumEkle({ onYorumEklendi }) {
 
     try {
       const response = await axios.post(
-        "http://api.yunuskarasen.com/api/yorum-ekle",
+        "https://kaq3gzs1vc.execute-api.eu-west-2.amazonaws.com/prod/api/yorum-ekle",
         {
           kullaniciAdi,
           yorum,
