@@ -120,7 +120,7 @@ function About() {
         </p>
         <div className="w3-white mb-3">
           <div className="w3-dark-grey" style={getBarStyle(80)}>
-            %70
+            %80
           </div>
         </div>
         <p className="w3-wide mb-0">
@@ -155,7 +155,7 @@ function About() {
         </p>
         <div className="w3-white mb-3">
           <div className="w3-dark-grey" style={getBarStyle(80)}>
-            %75
+            %80
           </div>
         </div>
         <p className="w3-wide mb-0">
@@ -164,7 +164,7 @@ function About() {
         </p>
         <div className="w3-white mb-3">
           <div className="w3-dark-grey" style={getBarStyle(75)}>
-            %60
+            %75
           </div>
         </div>
         <p className="w3-wide mb-0">
@@ -173,7 +173,7 @@ function About() {
         </p>
         <div className="w3-white mb-3">
           <div className="w3-dark-grey" style={getBarStyle(75)}>
-            %60
+            %75
           </div>
         </div>
         <p className="w3-wide mb-0">
@@ -199,8 +199,8 @@ function About() {
           MySQL
         </p>
         <div className="w3-white mb-3">
-          <div className="w3-dark-grey" style={getBarStyle(90)}>
-            %80
+          <div className="w3-dark-grey" style={getBarStyle(85)}>
+            %85
           </div>
         </div>
 
@@ -209,8 +209,8 @@ function About() {
           Git
         </p>
         <div className="w3-white mb-3">
-          <div className="w3-dark-grey" style={getBarStyle(90)}>
-            %80
+          <div className="w3-dark-grey" style={getBarStyle(85)}>
+            %85
           </div>
         </div>
 
