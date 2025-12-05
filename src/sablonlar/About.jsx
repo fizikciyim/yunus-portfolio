@@ -119,7 +119,7 @@ function About() {
           <i className="devicon-go-plain me-1 colored"></i>Go
         </p>
         <div className="w3-white mb-3">
-          <div className="w3-dark-grey" style={getBarStyle(70)}>
+          <div className="w3-dark-grey" style={getBarStyle(80)}>
             %70
           </div>
         </div>
@@ -154,7 +154,7 @@ function About() {
           React
         </p>
         <div className="w3-white mb-3">
-          <div className="w3-dark-grey" style={getBarStyle(75)}>
+          <div className="w3-dark-grey" style={getBarStyle(80)}>
             %75
           </div>
         </div>
@@ -163,7 +163,7 @@ function About() {
           Node.js
         </p>
         <div className="w3-white mb-3">
-          <div className="w3-dark-grey" style={getBarStyle(60)}>
+          <div className="w3-dark-grey" style={getBarStyle(75)}>
             %60
           </div>
         </div>
@@ -172,8 +172,17 @@ function About() {
           Express.js
         </p>
         <div className="w3-white mb-3">
-          <div className="w3-dark-grey" style={getBarStyle(60)}>
+          <div className="w3-dark-grey" style={getBarStyle(75)}>
             %60
+          </div>
+        </div>
+        <p className="w3-wide mb-0">
+          <i className="devicon-amazonwebservices-plain colored me-1"></i>
+          AWS
+        </p>
+        <div className="w3-white mb-3">
+          <div className="w3-dark-grey" style={getBarStyle(70)}>
+            %70
           </div>
         </div>
         <p className="w3-wide mb-0">
