@@ -1,9 +1,9 @@
 import { Toast } from "bootstrap";
-import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
-import React, { useState, useRef, useEffect } from "react";
+import { FaStar, FaRegStar } from "react-icons/fa";
+import React, { useState, useRef } from "react";
 import { useAuth } from "./AuthContext";
 
-function Star({ fill = 1, size = 24, color = "gold", ...props }) {
+function Star({ fill = 1, size = 24 }) {
   return (
     <div
       style={{
@@ -14,15 +14,12 @@ function Star({ fill = 1, size = 24, color = "gold", ...props }) {
         cursor: "pointer",
         marginRight: 4,
       }}
-      {...props}
     >
-      {/* Boş yıldız */}
       <FaRegStar
         color="lightgray"
         size={size}
         style={{ position: "absolute", top: 0, left: 0 }}
       />
-      {/* Dolu yıldız - genişliği fill oranına göre */}
       <div
         style={{
           overflow: "hidden",
@@ -33,79 +30,60 @@ function Star({ fill = 1, size = 24, color = "gold", ...props }) {
           height: "100%",
         }}
       >
-        <FaStar color={color} size={size} />
+        <FaStar color="gold" size={size} />
       </div>
     </div>
   );
 }
 
-function StarRating({ initialRating = 0, onRate }) {
+function StarRating({ initialRating = 0 }) {
   const [rating, setRating] = useState(initialRating);
   const [hover, setHover] = useState(0);
   const { kullanici } = useAuth();
-
   const toastRef = useRef(null);
 
-  useEffect(() => {
-    setRating(initialRating);
-  }, [initialRating]);
-
-  const handleClick = (value, e) => {
+  const handleClick = (value) => {
     if (!kullanici) {
-      const x = e.clientX;
-      const y = e.clientY;
-      const toastEl = toastRef.current;
-      toastEl.style.left = `${x}px`;
-      toastEl.style.top = `${y}px`;
-      const toast = new Toast(toastEl, { delay: 2000, autohide: true });
+      const toast = new Toast(toastRef.current, { delay: 2000 });
       toast.show();
       return;
     }
+    // backend yok → sadece local efekt
     setRating(value);
-    if (onRate) onRate(value);
   };
 
   const currentRating = hover || rating;
 
   return (
     <>
-      <span>
-        {[1, 2, 3, 4, 5].map((value) => {
-          // Doluluk oranını hesapla: örn. rating=4.25, value=5 => fill=0.25
-          const fill = Math.min(Math.max(currentRating - (value - 1), 0), 1);
-          return (
-            <Star
-              key={value}
-              fill={fill}
-              color="gold"
-              size={24}
-              onClick={(e) => handleClick(value, e)}
-              onMouseEnter={() => setHover(value)}
-              onMouseLeave={() => setHover(0)}
-            />
-          );
-        })}
-      </span>
+      {[1, 2, 3, 4, 5].map((value) => {
+        const fill = Math.min(Math.max(currentRating - (value - 1), 0), 1);
+        return (
+          <span
+            key={value}
+            onClick={() => handleClick(value)}
+            onMouseEnter={() => setHover(value)}
+            onMouseLeave={() => setHover(0)}
+          >
+            <Star fill={fill} />
+          </span>
+        );
+      })}
 
       <div
         ref={toastRef}
         className="toast position-fixed text-bg-danger"
         style={{
-          position: "fixed",
           top: "20px",
           left: "50%",
           transform: "translateX(-50%)",
           zIndex: 9999,
         }}
-        role="alert"
-        aria-live="assertive"
-        aria-atomic="true"
       >
-        <div className="toast-body d-flex justify-content-between align-items-center">
-          Puan vermek için giriş yapmalısınız!
-        </div>
+        <div className="toast-body">Puan vermek için giriş yapmalısınız.</div>
       </div>
     </>
   );
 }
+
 export default StarRating;
